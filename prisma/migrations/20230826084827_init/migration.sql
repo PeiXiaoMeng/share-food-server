@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Area` MODIFY `img` VARCHAR(255) NOT NULL;
