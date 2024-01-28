@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { areas, fields, conditions, users } from '../surface';
+import { areas, fields, users, comments, conds } from '../surface';
 
 const prisma = new PrismaClient();
 
@@ -16,22 +16,27 @@ async function main() {
     });
   }
 
-  for (const condition of conditions) {
-    await prisma.condition.create({
-      data: condition,
-    });
-  }
-
   for (const user of users) {
     await prisma.user.create({
       data: user,
+    });
+  }
+
+  for (const comment of comments) {
+    await prisma.comment.create({
+      data: comment,
+    });
+  }
+
+  for (const cond of conds) {
+    await prisma.cond.create({
+      data: cond,
     });
   }
 }
 
 main()
   .catch((e) => {
-    console.log(e);
     process.exit(1);
   })
   .finally(async () => {

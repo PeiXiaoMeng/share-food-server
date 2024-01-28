@@ -1,11 +1,11 @@
 import { Global, Module } from '@nestjs/common';
-import { UserService } from './user.service';
+import { FieldService } from './field.service';
 import { PrismaService } from '../common/prisma.service';
 import { CacheService } from '../common/redis-cache.service';
 
 @Global()
 @Module({
-  providers: [UserService, PrismaService, CacheService],
-  exports: [UserService],
+  providers: [FieldService, PrismaService, CacheService],
+  exports: [FieldService],
 })
-export class UserModule {}
+export class FieldModule {}

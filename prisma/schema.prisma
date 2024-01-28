@@ -34,13 +34,6 @@ model Field {
 }
 
 
-model Condition {
-  id        String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  text      String
-}
 
 // 最新共享美食店
 
@@ -50,11 +43,30 @@ model Condition {
 
 
 model User {
-  id        String   @id @default(cuid())
+  openId    String  @id @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  openId    String 
+  nickName   String
+  avatarUrl  String
+}
+
+
+model Comment {
+  id        String  @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  msg       String
+}
+
+
+model Cond {
+  id        Int  @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  text       String
 }
 
 

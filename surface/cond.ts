@@ -1,4 +1,4 @@
-export const conditions = [
+export const conds = [
   {
     text: '免费',
   },

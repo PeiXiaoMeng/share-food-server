@@ -6,5 +6,6 @@
 
 export * from '../surface/area';
 export * from '../surface/field';
-export * from '../surface/condition';
 export * from '../surface/user';
+export * from '../surface/comment';
+export * from '../surface/cond';

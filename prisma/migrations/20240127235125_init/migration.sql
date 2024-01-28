@@ -1,0 +1,10 @@
+/*
+  Warnings:
+
+  - Added the required column `avatarUrl` to the `User` table without a default value. This is not possible if the table is not empty.
+  - Added the required column `nickName` to the `User` table without a default value. This is not possible if the table is not empty.
+
+*/
+-- AlterTable
+ALTER TABLE `User` ADD COLUMN `avatarUrl` VARCHAR(191) NOT NULL,
+    ADD COLUMN `nickName` VARCHAR(191) NOT NULL;
