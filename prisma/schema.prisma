@@ -31,6 +31,9 @@ model Field {
   img       String?
   sign      String
   province  String
+  status    Int     // 2:默认 未审核  1: 已审核通过  0： 已审核失败   3: 已关闭（球场已不再）
+  isCharge  Int     // 1:收费        2: 免费
+  boundNum  Int     // 篮板个数
 }
 
 

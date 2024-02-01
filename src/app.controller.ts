@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Headers } from '@nestjs/common';
+import { Controller, Get, Post, Body, Headers, Req, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { AppService } from './app.service';
 import { UserService } from './user/user.service';
 import { FieldService } from './field/field.service'
@@ -21,23 +22,8 @@ export class AppController {
     return this.userService.getUser();
   }
 
-  @Post('user')
-  registry(@Body() userdto, @Headers() headers) {
-    return this.userService.registry(userdto);
-  }
-
-  @Post('login')
-  login(@Body() userdto, @Headers() headers) {
-    return this.userService.login(userdto);
-  }
-
   @Get('condition')
   condition() {
     return this.fieldService.condition();
-  }
-
-  @Get('field')
-  field() {
-    return this.fieldService.field();
   }
 }

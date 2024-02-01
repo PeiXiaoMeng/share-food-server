@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../common/prisma.service';
 import { CacheService } from '../common/redis-cache.service';
+import { JwtService } from '@nestjs/jwt';
 import axios from 'axios';
 
 
@@ -14,7 +15,8 @@ const ART_APP_SECRET = 'f22f370a453beaaa18e7c8532f54ecb3';
 export class UserService {
   constructor(
     private readonly cacheService: CacheService, 
-    private readonly prisma: PrismaService
+    private readonly prisma: PrismaService,
+    private readonly jwtService: JwtService,
   ) {}
 
   getUser(): string {
@@ -34,6 +36,10 @@ export class UserService {
       const user: any = await this.prisma.user.findMany({ where: { openId } });
       if (user && user.length) {
         const token = btoa(encodeURIComponent(openId));
+        // const token = this.jwtService.sign({
+        //   secret: 'ceshi',
+        //   openId: btoa(encodeURIComponent(openId)),
+        // })
         return { code: 200, errmsg: '', data: {
           token: token,
           avatarUrl: user[0].avatarUrl,
@@ -49,6 +55,11 @@ export class UserService {
         },
       });
       const token = btoa(encodeURIComponent(openId));
+      // const token = this.jwtService.sign({
+      //   secret: 'ceshi',
+      //   openId: btoa(encodeURIComponent(openId)),
+      // })
+      console.log(token);
       return { code: 200, errmsg: '', data: {
         token: token,
         avatarUrl: result.avatarUrl,

@@ -5,6 +5,9 @@ export const fields = [
     img: '',
     sign: '1, 2',
     province: '北京',
+    status: 2,
+    isCharge: 1,
+    boundNum: 2,
   },
   {
     title: '北京市昌平区东小口森林公园',
@@ -12,6 +15,9 @@ export const fields = [
     img: '',
     sign: '1',
     province: '北京',
+    status: 2,
+    isCharge: 2,
+    boundNum: 2,
   },
   {
     title: '北京市朝阳区官悦新园',
@@ -19,5 +25,8 @@ export const fields = [
     img: '',
     sign: '2',
     province: '北京',
+    status: 2,
+    isCharge: 2,
+    boundNum: 2,
   },
 ];
